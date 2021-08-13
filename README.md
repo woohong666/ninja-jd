@@ -211,8 +211,13 @@ cp .env.example .env
 ```
 然后在文件管理器找到.env文件
 ![image](https://user-images.githubusercontent.com/40889121/129294481-3007b332-0e2b-4413-9e5f-c8baaff37b29.png)
+
+
 按需修改内容保存。
+
 ![image](https://user-images.githubusercontent.com/40889121/129294521-4d3749e9-948a-4ffe-9d6f-a53f39ec5e8a.png)
+
+
 修改完文件记得
 ```bash
 pm2 start
