@@ -57,7 +57,7 @@ chmod +x /usr/local/bin/docker-compose
 填入一下内容
 
    例（docker-compose）：
-   ```diff
+```diff
 version: "3"
 services:
   qinglong:
@@ -86,7 +86,7 @@ services:
    
    ### 命令行里cd进docker-compose.yml所在的文件夹，执行命令
    
-```diff
+   ```diff
 docker-compose up -d
    ```
    
