@@ -92,7 +92,7 @@ docker-compose up -d
    
    ###    例（docker-run）：
 
-   ```diff
+```diff
 docker run -dit \
   -v $PWD/ql/config:/ql/config \
   -v $PWD/ql/log:/ql/log \
