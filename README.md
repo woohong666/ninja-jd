@@ -57,9 +57,8 @@ chmod +x /usr/local/bin/docker-compose
 填入一下内容
 
    例（docker-compose）：
-
    ```diff
-  version: "3"
+version: "3"
 services:
   qinglong:
     image: whyour/qinglong:latest
