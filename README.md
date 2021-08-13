@@ -29,28 +29,26 @@ Ninja 仅支持 qinglong 2.8+
 新手建议保存好ck，重置系统从0安装。教程从0开始。
 第一步 安装docker，docker-compose。
 
-#安装docker
-   ```diff 
+### 安装docker
+   ```diff
 sudo yum check-update
 curl -sSL https://get.daocloud.io/docker | sh
 sudo systemctl start docker
 sudo systemctl status docker
 sudo systemctl enable docker
-    ```
-##安装完docker以后 安装docker-compose
-   ```diff 
+   ```
+### 安装完docker以后 安装[docker-compose](https://docs.docker.com/compose/install/)
+   ```diff
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
 chmod +x /usr/local/bin/docker-compose
-    ```
+   ```
 
-##不想重置系统就删除容器
-   ```diff  
+### 不想重置系统就删除容器
+   ```diff
  docker stop $(docker ps -a -q) //  stop停止所有容器 
  docker rm $(docker ps -a -q) //   remove删除所有容器
-    ```
-
-
+   ```
 ### 容器内
 
 1. 容器映射 5701 端口，ninja 目录至宿主机
@@ -93,10 +91,10 @@ services:
 docker-compose up -d
    ```
    
-   例（docker-run）：
+   ###    例（docker-run）：
 
    ```diff
-   docker run -dit \
+docker run -dit \
   -v $PWD/ql/config:/ql/config \
   -v $PWD/ql/log:/ql/log \
   -v $PWD/ql/db:/ql/db \
@@ -205,7 +203,30 @@ pm2 start
 **此环境变量在青龙中配置！！！**
 
 - `NOTIFY_SKIP_LIST`: 通知黑名单，使用 `&` 分隔，例如 `东东乐园&东东萌宠`;
+- 
+那么老样子打开Finalshell 按顺序复制粘贴代码
+```bash
+docker exec -it qinglong bash
+cd /ql/ninja/backend
+cp .env.example .env
+```
+然后在文件管理器找到.env文件
+![image](https://user-images.githubusercontent.com/40889121/129294481-3007b332-0e2b-4413-9e5f-c8baaff37b29.png)
+按需修改内容保存。
+![image](https://user-images.githubusercontent.com/40889121/129294521-4d3749e9-948a-4ffe-9d6f-a53f39ec5e8a.png)
+修改完文件记得
+```bash
+pm2 start
+```
 
+###  Ninja更新方法
+那么老样子打开Finalshell 按顺序复制粘贴代码
+```bash
+docker exec -it qinglong bash
+cd /ql/ninja/backend
+git pull
+pm2 start
+```
 ### Ninja 自定义
 
 自定义推送二维码：将 `push.jpg` 文件添加到 `/ql/ninja/backend/static/` 目录下刷新网页即可。
